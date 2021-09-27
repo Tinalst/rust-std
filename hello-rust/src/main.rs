@@ -285,23 +285,288 @@
 // }
 
 
-enum Mood {
-    Good,
-    Bad,
-    Sleepy
-}
+// enum Mood {
+//     Good,
+//     Bad,
+//     Sleepy
+// }
+//
+// impl Mood {
+//     fn check(&self) {
+//         match self {
+//             Mood::Bad => println!("bad"),
+//             Mood::Sleepy => println!("sleepy"),
+//             Mood::Good => println!("good")
+//         }
+//     }
+// }
+//
+// fn main() {
+//     let my_mood = Mood::Sleepy;
+//     my_mood.check();
+// }
 
-impl Mood {
-    fn check(&self) {
-        match self {
-            Mood::Bad => println!("bad"),
-            Mood::Sleepy => println!("sleepy"),
-            Mood::Good => println!("good")
-        }
-    }
-}
 
-fn main() {
-    let my_mood = Mood::Sleepy;
-    my_mood.check();
-}
+// struct City {
+//     name: String,
+//     name_before: String,
+//     population: u32,
+//     date_founded: u32
+// }
+//
+// impl City {
+//     fn new(name: String, name_before: String, population: u32, date_founded: u32) -> Self {
+//         Self {
+//             name,
+//             name_before,
+//             population,
+//             date_founded
+//         }
+//     }
+// }
+//
+// fn process_city_values(city: &City) {
+//     let City {
+//         name,
+//         name_before,
+//         population,
+//         date_founded
+//     } = city;
+//
+//     let tow_names = vec![name, name_before];
+//     println!("{}: {}", name, name_before);
+// }
+//
+// fn main() {
+//     let tallin = City::new("tina".to_string(), "lili".to_string(), 432_234_234, 123);
+//     process_city_values(&tallin)
+// }
+
+// use std::fmt::Debug;
+//
+// fn print_numer<T: Debug>(number: T) {
+//     println!("{:?}", number);
+// }
+//
+// fn main() {
+//     print_numer(5);
+// }
+
+// use std::fmt::Debug;
+// #[derive(Debug)]
+// struct Animal {
+//     name: String,
+//     age: u8,
+// }
+//
+// fn print_item<T: Debug>(item: T){
+//     println!("{:?}", item);
+// }
+//
+// fn main(){
+//     let charle = Animal {
+//         name: "yoyo".to_string(),
+//         age:1
+//     };
+//
+//     let number = 55;
+//
+//     print_item(charle);
+//     print_item(number);
+// }
+
+// use std::cmp::PartialOrd;
+// use std::fmt::Display;
+//
+// fn compare_and_dispaly<T, U>(statement: T, num_1: U, num_2: U)
+// where
+//     T: Display,
+//     U: Display + PartialOrd,
+// {
+//     println!("{}: {}: {}: {}", statement, num_1, num_2, num_1 < num_2);
+// }
+//
+// fn main() {
+//     compare_and_dispaly("listen up!", 9,8);
+// }
+
+
+// fn take_fifth(value: Vec<i32>) -> Option<i32> {
+//     if value.len() < 5 {
+//         None
+//     }else {
+//         Some(value[4])
+//     }
+// }
+
+// fn main() {
+//     let new_vec = vec![1,2];
+//     let bigger_vec = vec![1,2,3,4,5];
+//     // println!("{:?}: {:?}", take_fifth(new_vec), take_fifth(bigger_vec)); // None, Some(5)
+//     println!("{:?}: {:?}", take_fifth(new_vec), take_fifth(bigger_vec).unwrap()); //None: 5
+// }
+//
+// fn handle_option(my_option: Vec<Option<i32>>) {
+//     for item in my_option {
+//         match item {
+//             None => println!("found a none"),
+//             Some(number) => println!("{}", number)
+//         }
+//     }
+// }
+//
+// fn main() {
+//     let new_vew = vec![1,2];
+//     let bigger_vec = vec![1,2,3,4,5];
+//
+//     let mut option_vec = Vec::new();
+//     option_vec.push(take_fifth(new_vew));
+//     option_vec.push(take_fifth(bigger_vec));
+//
+//     handle_option(option_vec)
+//
+// }
+
+// fn give_result(input: i32) -> Result<(), ()> {
+//     if input % 2 == 0 {
+//         return Ok(())
+//     } else {
+//         return Err(())
+//     }
+// }
+//
+// fn main() {
+//     if give_result(5).is_ok() {
+//         println!("okk");
+//     } else {
+//         println!("error");
+//     }
+// }
+
+
+// fn check_if_five(number: i32) -> Result<i32, String> {
+//     match number {
+//         5 => Ok(number),
+//         _ => Err("error".to_string())
+//     }
+// }
+//
+// fn main() {
+//     let mut result_vec = Vec::new();
+//
+//     for number in 2..7 {
+//         result_vec.push(check_if_five(number))
+//     }
+//
+//     println!("{:?}", result_vec);
+// }
+
+
+// fn main() {
+//     let my_vec = vec![2,3,4];
+//     let get_one = my_vec.get(0);
+//     let get_two = my_vec.get(10);
+//
+//     println!("{:?}", get_one);
+//     println!("{:?}", get_two);
+// }
+
+// fn main() {
+//     let my_vev = vec![2,3,4];
+//
+//     for index in 0..10 {
+//         match my_vev.get(index) {
+//             Some(number) => println!("{}", number),
+//             None => {}
+//         }
+//     }
+// }
+
+// fn main() {
+//     let my_vec = vec![2,3,4];
+//
+//     for index in 0..10 {
+//         if let Some(number) = my_vec.get(index) {
+//             println!("{}", number);
+//         }
+//     }
+// }
+
+
+// fn main() {
+//     let weather_vec = vec![
+//         vec!["Berlin", "cloudy", "5", "-7", "78"],
+//         vec!["Athens", "sunny", "not humid", "20", "10", "50"],
+//     ];
+//
+//     for mut city in weather_vec {
+//         // println!("city: {}", city[0]);
+//
+//         while let Some(infomation) = city.pop() {
+//             // println!("pop: {}", infomation);
+//
+//             if let Ok(number) = infomation.parse::<i32>() {
+//                 println!("parse: {}", number);
+//             }
+//         }
+//     }
+// }
+
+
+// use std::collections::HashMap;
+//
+// struct City {
+//     name: String,
+//     population: HashMap<u32, u32>
+// }
+//
+// fn main() {
+//     let mut taillin = City {
+//         name: "tinam".to_string(),
+//         population: HashMap::new()
+//     };
+//
+//
+//     for num in 1..=3 {
+//         taillin.population.insert(num, num*100);
+//     }
+//
+//     for (index, num) in taillin.population {
+//         println!("{}:{}", index, num);
+//     }
+// }
+
+// use std::collections::HashMap;
+//
+// fn main() {
+//     let candian_cities = vec!["Calgary", "Vancouver", "Gimli"];
+//     let german_cities = vec!["Karlsruhe", "Bad Doberan", "Bielefeld"];
+//
+//     let mut city_hashmap = HashMap::new();
+//
+//     for city in candian_cities {
+//         city_hashmap.insert(city, "canada");
+//     }
+//
+//     for city in german_cities {
+//         city_hashmap.insert(city, "germany");
+//     }
+//
+//     println!("{:?}", city_hashmap.get("Bielefeld")); // Some("germany")
+//     println!("{:?}", city_hashmap.get("Bad Doberan")); // Some("germany")
+//     println!("{:?}", city_hashmap.get("Calgary"));  // Some("canada")
+// }
+
+// use std::collections::HashMap;
+//
+// fn main() {
+//     let mut book_hashmap = HashMap::new();
+//
+//     book_hashmap.insert(1, "daladala");
+//
+//     if book_hashmap.get(&1).is_none() {
+//         book_hashmap.insert(1, "lalalal");
+//     }
+//
+//     println!("{:?}", book_hashmap.get(&1)); // Some("daladala")
+// }
